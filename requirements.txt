@@ -1,0 +1,25 @@
+# Backend API
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# Data Science & ML
+pandas==2.3.3
+numpy==2.4.1
+scikit-learn==1.8.0
+scipy==1.17.0
+xgboost==2.0.2
+joblib==1.5.3
+imbalanced-learn==0.14.1
+
+# Jupyter/Notebooks
+jupyter==1.1.1
+jupyterlab==4.5.1
+ipykernel==7.1.0
+notebook==7.5.1
+
+# Visualization
+matplotlib==3.10.8
+seaborn==0.13.2
+plotly==6.5.1
