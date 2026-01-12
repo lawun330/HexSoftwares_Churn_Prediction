@@ -50,3 +50,26 @@ docker-compose up --build
 - API Docs: `http://localhost:8000/docs`
 
 For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
+
+## Images
+
+<table>
+<tr>
+<td><img src="images/churn_ss.png" alt="Churn" width="100%"></td>
+<td><img src="images/no_churn_ss.png" alt="No Churn" width="100%"></td>
+</tr>
+<tr>
+<td align="center">Churn</td>
+<td align="center">No Churn</td>
+</tr>
+</table>
+
+## Deployment (Public Hosting)
+
+To deploy this application publicly (not just localhost), use hosting services like **Railway**, **Render**, **Heroku**, or **AWS**.
+
+**Note**: For production deployment:
+- Update CORS settings in `backend/app.py` to allow the production domain
+- Build the React frontend for production (`npm run build`)
+- Consider using environment variables for configuration
+- Ensure model files are accessible (include in deployment or use cloud storage)
