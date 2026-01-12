@@ -1,0 +1,114 @@
+.prediction-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .prediction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .submit-button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  .submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .result-container {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+  }
+  
+  .prediction-result {
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .prediction-result.churn {
+    background-color: #fee;
+    border: 2px solid #fcc;
+  }
+  
+  .prediction-result.no-churn {
+    background-color: #efe;
+    border: 2px solid #cfc;
+  }
+  
+  .probability-bar {
+    margin-top: 15px;
+  }
+  
+  .probability-item {
+    margin-bottom: 10px;
+  }
+  
+  .bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+  }
+  
+  .bar-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+  
+  .bar-fill.no-churn {
+    background-color: #4caf50;
+  }
+  
+  .bar-fill.churn {
+    background-color: #f44336;
+  }
+  
+  .error-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fee;
+    border: 1px solid #fcc;
+    border-radius: 4px;
+    color: #c00;
+  }
