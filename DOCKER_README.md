@@ -41,7 +41,7 @@ This project uses **two `.dockerignore` files** following Docker best practices:
    - Build context: `./frontend`
    - Excludes: Node modules, build files, environment files
 
-**Why two files?** Docker only looks for `.dockerignore` in the build context directory, not parent directories. Since we have different build contexts (`.` for backend, `./frontend` for frontend), we need separate `.dockerignore` files.
+**Why two files?** Docker only looks for `.dockerignore` in the build context directory, not parent directories. With different build contexts (`.` for backend, `./frontend` for frontend), separate `.dockerignore` files are required.
 
 **Best Practice**: One `.dockerignore` per build context. This ensures optimal build performance and prevents unnecessary files from being copied into Docker images.
 
@@ -51,7 +51,7 @@ This project uses **two `.dockerignore` files** following Docker best practices:
 
 **Optional: Multiple Requirements Files**
 
-You may choose to create separate `requirements.txt` files for different purposes:
+Separate `requirements.txt` files can be created for different purposes:
 
 1. **`requirements.txt`** (project root) - Full development environment
    - **Purpose**: Complete development setup
@@ -121,10 +121,10 @@ docker run -p 3000:3000 churn-frontend
 
 ## Important Notes:
 
-1. **Model Files**: The models, preprocessors, and data directories are mounted as volumes, so they must exist in your project root.
+1. **Model Files**: The models, preprocessors, and data directories are mounted as volumes, so they must exist in the project root.
 
 2. **Ports**: Make sure ports 3000 and 8000 are not in use by other applications.
 
 3. **Environment Variables**: The frontend uses `REACT_APP_API_URL` environment variable (set in docker-compose.yml).
 
-4. **Hot Reload**: The frontend volumes are configured for development. For production, you'd build the frontend and serve static files.
+4. **Hot Reload**: The frontend volumes are configured for development. For production, build the frontend and serve static files.
