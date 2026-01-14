@@ -2,18 +2,18 @@
 
 This project uses Docker to containerize both the backend (FastAPI) and frontend (React) applications.
 
-## Files Created:
+## Files
 
-1. **`backend/Dockerfile`** - Builds the FastAPI backend container
-2. **`frontend/Dockerfile`** - Builds the React frontend container
+1. **`backend/backend.Dockerfile`** - Builds the FastAPI backend container
+2. **`frontend/frontend.Dockerfile`** - Builds the React frontend container
 3. **`docker-compose.yml`** - Orchestrates both services
-4. **`requirements.txt`** (root) - Python dependencies (used by both local development and Docker)
+4. **`backend/backend-requirements.txt`** - Backend Python dependencies for Docker
 5. **`.dockerignore`** (root) - Files to exclude from backend Docker builds
-7. **`frontend/.dockerignore`** - Files to exclude from frontend Docker builds
+6. **`frontend/.dockerignore`** - Files to exclude from frontend Docker builds
 
-## Architecture & Best Practices:
+## Architecture
 
-### Why Two Separate Dockerfiles?
+### A. Dockerfiles
 
 This project uses **two separate Dockerfiles** (one for backend, one for frontend) instead of a single container. This follows Docker and microservices best practices:
 
@@ -29,7 +29,7 @@ This project uses **two separate Dockerfiles** (one for backend, one for fronten
 
 The `docker-compose.yml` runs both containers together, but they remain independent and can be deployed separately if needed.
 
-### .dockerignore Files
+### B. .dockerignore Files
 
 This project uses **two `.dockerignore` files** following Docker best practices:
 
@@ -45,32 +45,11 @@ This project uses **two `.dockerignore` files** following Docker best practices:
 
 **Best Practice**: One `.dockerignore` per build context. This ensures optimal build performance and prevents unnecessary files from being copied into Docker images.
 
-### Requirements Files
+### C. Requirements Files
 
-**Current Setup**: This project uses a single **`requirements.txt`** at the project root, which includes all dependencies (backend API, Jupyter notebooks, visualization packages). The backend Dockerfile uses this file.
+The backend Dockerfile uses **`backend/backend-requirements.txt`**, which contains only the dependencies needed for the API (no Jupyter, no visualization packages). This provides a smaller, faster Docker image optimized for production.
 
-**Optional: Multiple Requirements Files**
-
-Separate `requirements.txt` files can be created for different purposes:
-
-1. **`requirements.txt`** (project root) - Full development environment
-   - **Purpose**: Complete development setup
-   - **Contains**: All dependencies (backend API + Jupyter notebooks + visualization)
-   - **Use for**: Local development, conda environment setup, running notebooks
-
-2. **`backend/requirements.txt`** (optional) - Minimal production runtime
-   - **Purpose**: Optimized production deployment
-   - **Contains**: Only backend API dependencies (no Jupyter, no visualization packages)
-   - **Use for**: Docker backend container, production deployment
-   - **Benefits**: 
-     - Smaller Docker image (~500MB+ savings)
-     - Faster Docker builds
-     - Follows production best practices (only install what's needed)
-     - Faster security scanning
-
-**Why consider multiple files?** While a single `requirements.txt` works, using a minimal `backend/requirements.txt` for Docker provides production optimizations. The current setup uses one file for simplicity, which is perfectly acceptable for development and smaller deployments.
-
-## How to Use:
+## Application Installation with Docker
 
 ### Option 1: Using Docker Compose (Recommended)
 
@@ -93,7 +72,7 @@ docker-compose down
 #### Backend:
 ```bash
 # Build backend image
-docker build -t churn-backend -f backend/Dockerfile .
+docker build -t churn-backend -f backend/backend.Dockerfile .
 
 # Run backend container
 docker run -p 8000:8000 \
@@ -107,17 +86,11 @@ docker run -p 8000:8000 \
 ```bash
 # Build frontend image
 cd frontend
-docker build -t churn-frontend .
+docker build -t churn-frontend -f frontend.Dockerfile .
 
 # Run frontend container
 docker run -p 3000:3000 churn-frontend
 ```
-
-## Accessing the Application:
-
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:8000
-- **API Docs**: http://localhost:8000/docs
 
 ## Important Notes:
 

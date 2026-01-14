@@ -6,7 +6,7 @@ Machine learning project for predicting customer churn using XGBoost, Random For
 
 [Telco Customer Churn Dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) from Kaggle
 
-## Installation
+## Dependencies Installation
 
 ### Option 1: Conda Environment (Recommended)
 ```bash
@@ -19,7 +19,13 @@ conda activate churn_prediction_env
 pip install -r requirements.txt
 ```
 
-## Running the Application
+## Application Installation
+
+### Prerequisites
+
+1. **Repository files**: Download the repository as ZIP and extract it
+2. **Python**: Install it
+3. **Docker Desktop**: Install and run it before using docker-compose
 
 ### Option 1: Normal Python
 
@@ -36,20 +42,19 @@ npm install  # First time only - installs dependencies
 npm start    # Starts the development server
 ```
 
-- Backend: `http://localhost:8000`
-- Frontend: `http://localhost:3000`
-
 ### Option 2: Docker
 
 ```bash
 docker-compose up --build
 ```
 
+For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
+
+### Accessing the Application
+
 - Frontend: `http://localhost:3000`
 - Backend API: `http://localhost:8000`
 - API Docs: `http://localhost:8000/docs`
-
-For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
 
 ## Images
 
@@ -64,11 +69,10 @@ For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
 </tr>
 </table>
 
-## Deployment (Public Hosting)
+## Further Deployment (Public Hosting)
 
-To deploy this application publicly (not just localhost), use hosting services like **Railway**, **Render**, **Heroku**, or **AWS**.
+To deploy this application publicly (not just localhost), use hosting services like **Railway**, **Render**, **Heroku**, or **AWS** and:
 
-**Note**: For production deployment:
 - Update CORS settings in `backend/app.py` to allow the production domain
 - Build the React frontend for production (`npm run build`)
 - Consider using environment variables for configuration
