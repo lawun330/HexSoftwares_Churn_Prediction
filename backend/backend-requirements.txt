@@ -1,0 +1,16 @@
+# Backend API
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# Data Science & ML
+pandas==2.3.3
+numpy==2.4.1
+scikit-learn==1.8.0
+scipy==1.17.0
+xgboost==2.0.2
+joblib==1.5.3
+imbalanced-learn==0.14.1
+
+# No Jupyter/Visualization needed for production API
