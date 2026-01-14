@@ -11,7 +11,7 @@ COPY backend/backend-requirements.txt backend-requirements.txt
 RUN pip install --no-cache-dir -r backend-requirements.txt
 
 # Copy backend application code
-COPY backend/app.py ./backend/
+COPY backend/app.py .
 
 # Note: Models, preprocessors, and data are mounted as volumes in docker-compose.yml
 # They will be available at /app/models, /app/preprocessors, /app/data
