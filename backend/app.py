@@ -22,7 +22,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",  # React default port
-        "https://hexsoftwares-churn-prediction-ui.onrender.com/"  # Render deployed frontend
+        "https://hexsoftwares-churn-prediction-ui.onrender.com"  # Render deployed frontend
     ],
     allow_credentials=True,
     allow_methods=["*"],
