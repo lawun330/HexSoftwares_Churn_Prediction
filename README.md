@@ -52,9 +52,14 @@ For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
 
 ### Accessing the Application
 
+#### Local Host
 - Frontend: `http://localhost:3000`
 - Backend API: `http://localhost:8000`
 - API Docs: `http://localhost:8000/docs`
+
+#### Hosted Website
+- Frontend: https://hexsoftwares-churn-prediction-ui.onrender.com
+- Backend API: https://hexsoftwares-churn-prediction.onrender.com
 
 ## Images
 
