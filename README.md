@@ -50,17 +50,6 @@ docker-compose up --build
 
 For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
 
-### Accessing the Application
-
-#### Local Host
-- Frontend: `http://localhost:3000`
-- Backend API: `http://localhost:8000`
-- API Docs: `http://localhost:8000/docs`
-
-#### Hosted Website
-- Frontend: https://hexsoftwares-churn-prediction-ui.onrender.com
-- Backend API: https://hexsoftwares-churn-prediction.onrender.com
-
 ## Images
 
 <table>
@@ -74,11 +63,18 @@ For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
 </tr>
 </table>
 
-## Further Deployment (Public Hosting)
-
+## Deployment Tips
 To deploy this application publicly (not just localhost), use hosting services like **Railway**, **Render**, **Heroku**, or **AWS** and:
-
 - Update CORS settings in `backend/app.py` to allow the production domain
 - Build the React frontend for production (`npm run build`)
 - Consider using environment variables for configuration
 - Ensure model files are accessible (include in deployment or use cloud storage)
+
+### Local Host
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
+
+### Current Public Host
+- Frontend: https://hexsoftwares-churn-prediction-ui.onrender.com
+- Backend API: https://hexsoftwares-churn-prediction.onrender.com
