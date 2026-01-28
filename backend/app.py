@@ -23,7 +23,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",  # React default port
         "https://hexsoftwares-churn-prediction.onrender.com/"  # Render host
-    ]
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
