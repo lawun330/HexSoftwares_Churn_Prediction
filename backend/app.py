@@ -20,7 +20,10 @@ app = FastAPI(title="Customer Churn Prediction API", version="1.0")
 # Enable CORS for React frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React default port
+    allow_origins=[
+        "http://localhost:3000",  # React default port
+        "https://hexsoftwares-churn-prediction-ui.onrender.com"  # Render host
+    ]
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
