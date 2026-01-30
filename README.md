@@ -67,7 +67,6 @@ For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
 To deploy this application publicly (not just localhost), use hosting services like **Railway**, **Render**, **Heroku**, or **AWS**.
 
 For **Render**:
-- Update CORS settings in `backend/app.py` to allow the production domain
 - Build the FastAPI backend for production with
   ```console
   # Root Directory
@@ -87,6 +86,7 @@ For **Render**:
 - Consider using environment variables for configuration
   - `REACT_APP_API_URL` used in `frontend/src/services/api.ts`
   - `PYTHON_VERSION` used in `backend/runtime.txt`
+- Update CORS settings in `backend/app.py` to allow the production domain [add the Render deployed frontend URL]
 - Ensure model files are accessible (include in deployment or use cloud storage)
 
 ### Local Host
