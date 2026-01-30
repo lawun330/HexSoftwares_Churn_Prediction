@@ -64,10 +64,29 @@ For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
 </table>
 
 ## Deployment Tips
-To deploy this application publicly (not just localhost), use hosting services like **Railway**, **Render**, **Heroku**, or **AWS** and:
+To deploy this application publicly (not just localhost), use hosting services like **Railway**, **Render**, **Heroku**, or **AWS**.
+
+For **Render**:
 - Update CORS settings in `backend/app.py` to allow the production domain
-- Build the React frontend for production (`npm run build`)
+- Build the FastAPI backend for production with
+  ```console
+  # Root Directory
+  ./
+  # Build Command
+  pip install -r backend/backend-requirements.txt
+  # Start Command
+  uvicorn backend.app:app --host 0.0.0.0 -port $PORT
+  ```
+- Build the React frontend for production with
+  ```console
+  # Root Directory
+  ./frontend
+  # Build Command
+  npm install && npm run build`
+  ```
 - Consider using environment variables for configuration
+  - `REACT_APP_API_URL` used in `frontend/src/services/api.ts`
+  - `PYTHON_VERSION` used in `backend/runtime.txt`
 - Ensure model files are accessible (include in deployment or use cloud storage)
 
 ### Local Host
@@ -76,5 +95,5 @@ To deploy this application publicly (not just localhost), use hosting services l
 - API Docs: http://localhost:8000/docs
 
 ### Current Public Host
-- Frontend: https://hexsoftwares-churn-prediction-ui.onrender.com
+- Frontend: https://hexsoftwares-customer-churn-prediction.onrender.com
 - Backend API: https://hexsoftwares-churn-prediction.onrender.com
