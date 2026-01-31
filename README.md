@@ -81,7 +81,9 @@ For **Render**:
   # Root Directory
   ./frontend
   # Build Command
-  npm install && npm run build`
+  npm install && npm run build
+  # Publish Directory
+  ./frontend/build
   ```
 - Consider using environment variables for configuration
   - `REACT_APP_API_URL` used in `frontend/src/services/api.ts`
