@@ -6,6 +6,49 @@ Machine learning project for predicting customer churn using XGBoost, Random For
 
 [Telco Customer Churn Dataset](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) from Kaggle
 
+## Project Structure
+
+```
+root/
+├── backend/              # FastAPI
+├── data/                 # Dataset files (raw and processed)
+├── frontend/             # TypeScript files
+├── images/               # Example screenshots
+├── models/               # Trained model files
+├── notebooks/            # Jupyter notebooks for model development and analysis
+└── preprocessors/        # Saved preprocessors
+```
+
+## Models Explored
+
+The project compares three model architectures:
+
+1. **Decision Tree**: Baseline model with interpretable rules and non-linear boundaries, useful for identifying main churn drivers.
+    - Trained on SMOTE-balanced training data.
+
+2. **Random Forest**: Bagging ensemble of decision trees to reduce overfitting and capture feature interactions.
+    - Trained on SMOTE-balanced training data.
+
+3. **XGBoost**: Gradient boosting for strong predictive performance and complex interactions, well-suited to imbalanced targets.
+    - Trained on SMOTE-balanced training data.
+
+## Project Workflow
+
+### Phase 1: Baseline Compairson
+
+- Encoded categorical features (binary and one-hot) and applied SMOTE on the training set only to balance classes before model comparison.
+- Trained all three models on the same SMOTE-balanced training data.
+- Compared models with regular 5-fold and stratified 5-fold cross-validation using accuracy as the metric.
+- Random Forest had the highest CV accuracy; after final training and test evaluation, XGBoost performed best on the test set, so XGBoost was chosen for Phase 2.
+
+### Phase 2: Hyperparameter Tuning
+
+- Tuned XGBoost in two steps:
+    1. `GridSearchCV` for `n_estimators` and `learning_rate`,
+    2. `RandomizedSearchCV` for `max_depth`, `gamma`, `min_child_weight`, regularization, and sampling parameters.
+- Kept accuracy as the tuning metric.
+- Saved the best-tuned XGBoost model for deployment.
+
 ## Dependencies Installation
 
 ### Option 1: Conda Environment (Recommended)
@@ -14,7 +57,7 @@ conda env create -f churn_prediction_env.yaml
 conda activate churn_prediction_env
 ```
 
-### Option 2: pip Requirements
+### Option 2: Pip
 ```bash
 pip install -r requirements.txt
 ```
@@ -64,6 +107,7 @@ For detailed Docker setup, see [DOCKER_README.md](DOCKER_README.md)
 </table>
 
 ## Deployment Tips
+
 To deploy this application publicly (not just localhost), use hosting services like **Railway**, **Render**, **Heroku**, or **AWS**.
 
 For **Render**:
@@ -92,10 +136,12 @@ For **Render**:
 - Ensure model files are accessible (include in deployment or use cloud storage)
 
 ### Local Host
+
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:8000
 - API Docs: http://localhost:8000/docs
 
 ### Current Public Host
+
 - Frontend: https://hexsoftwares-customer-churn-prediction.onrender.com
 - Backend API: https://hexsoftwares-churn-prediction.onrender.com
