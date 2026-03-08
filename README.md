@@ -145,3 +145,4 @@ For **Render**:
 
 - Frontend: https://hexsoftwares-customer-churn-prediction.onrender.com
 - Backend API: https://hexsoftwares-churn-prediction.onrender.com
+- API Docs: https://hexsoftwares-churn-prediction.onrender.com/docs
