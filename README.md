@@ -75,7 +75,7 @@ pip install -r requirements.txt
 **Backend:**
 ```bash
 cd backend
-uvicorn app:app --reload
+uvicorn api:app --reload
 ```
 
 **Frontend:**
@@ -132,7 +132,7 @@ For **Render**:
 - Consider using environment variables for configuration
   - `REACT_APP_API_URL` used in `frontend/src/services/api.ts`
   - `PYTHON_VERSION` used in `backend/runtime.txt`
-- Update CORS settings in `backend/app.py` to allow the production domain [add the Render deployed frontend URL]
+- Update CORS settings in `backend/api.py` to allow the production domain [add the Render deployed frontend URL]
 - Ensure model files are accessible (include in deployment or use cloud storage)
 
 ### Local Host
