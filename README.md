@@ -118,7 +118,7 @@ For **Render**:
   # Build Command
   pip install -r backend/backend-requirements.txt
   # Start Command
-  uvicorn backend.app:app --host 0.0.0.0 -port $PORT
+  uvicorn backend.api:app --host 0.0.0.0 -port $PORT
   ```
 - Build the React frontend for production with
   ```console
